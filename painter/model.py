@@ -33,3 +33,13 @@ class Triangle:
         return abs(
             (self.point_1.x * (self.point_2.y - self.point_3.y) + self.point_2.x * (self.point_3.y - self.point_1.y) + self.point_3.x * (self.point_1.y - self.point_2.y)) / 2.0
         )
+    
+    def draw(self) -> None:
+        x = [self.point_1.x, self.point_2.x, self.point_3.x, self.point_1.x]
+        y = [self.point_1.y, self.point_2.y, self.point_3.y, self.point_1.y]
+        plt.fill(x, y, color='b')
+        plt.axis("scaled")
+        plt.show()
+    
+    def __str__(self) -> str:
+        return f"Triangle with vertices at ({self.point_1.x}, {self.point_1.y}), ({self.point_2.x}, {self.point_2.y}) and ({self.point_3.x}, {self.point_3.y})"

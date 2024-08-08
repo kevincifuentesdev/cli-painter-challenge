@@ -1,13 +1,19 @@
 import math
-import matplotlib.pyplot as plt # type: ignore
 import pickle
 
+
+import matplotlib.pyplot as plt # type: ignore
+
+
 class Point:
+
     def __init__(self, x: float, y: float) -> None:
         self.x = x
         self.y = y
 
+
 class Circle:
+
     def __init__(self, center: Point, radius: float) -> None:
         self.center = center
         self.radius = radius
@@ -24,7 +30,9 @@ class Circle:
     def __str__(self) -> str:
         return f"Circle with center at ({self.center.x}, {self.center.y}) and radius {self.radius}"
     
+
 class Triangle:
+
     def __init__(self, point_1: Point, point_2: Point, point_3: Point) -> None:
         self.point_1 = point_1
         self.point_2 = point_2
@@ -45,7 +53,9 @@ class Triangle:
     def __str__(self) -> str:
         return f"Triangle with vertices at ({self.point_1.x}, {self.point_1.y}), ({self.point_2.x}, {self.point_2.y}) and ({self.point_3.x}, {self.point_3.y})"
 
+
 class Rectangle:
+
     def __init__(self, point_1: Point, point_2: Point) -> None:
         self.point_1 = point_1
         self.point_2 = point_2
@@ -66,12 +76,14 @@ class Rectangle:
     def __str__(self) -> str:
         return f"Rectangle with vertices at ({self.point_1.x}, {self.point_1.y}) and ({self.point_2.x}, {self.point_2.y})"
 
+
 class Painter:
+
     FILE = ".painter"
 
     def __init__(self) -> None:
         self.shapes: list = []
-        self.load()
+        self._load()
 
     def _load(self) -> None:
         try:
